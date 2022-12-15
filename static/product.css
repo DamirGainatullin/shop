@@ -1,0 +1,190 @@
+.image {
+    padding-top: 40px;
+    width: 40%;
+    vertical-align: top;
+    /*border: 2px solid #b6ffc7;*/
+}
+
+.left-border {
+    width: 15%;
+}
+
+.right-border {
+    width: 20%;
+}
+
+.image img {
+    /*margin: 100px;*/
+    border: 2px solid #b6ffc7;
+    box-shadow: 0 0 20px #b6ffc7;
+}
+
+.description {
+    /*border: 3px solid #b6ffc7;*/
+    vertical-align: top;
+    width: 25%;
+    font-size: large;
+}
+
+.common-size {
+    font-size: medium;
+}
+
+p {
+    font-size: larger;
+}
+
+.about {
+    border: 2px solid #b6ffc7;
+    padding: 0 5px 5px 5px;
+    box-shadow: 0 0 10px #b6ffc7;
+    height: 400px;
+}
+
+.buttons {
+    box-shadow: 0 0 10px #b6ffc7;
+    border: 1px solid #b6ffc7;
+    margin-top: 20px;
+    width: 24%;
+    height: 30px;
+    margin-left: 5%;
+    background-color: white;
+}
+
+.buttons:first-child {
+    margin-left: 0;
+}
+
+.rating-result {
+	width: 150px;
+    margin-left: 10px;
+	/*margin: 0 auto;*/
+}
+.rating-result span {
+	/*padding: 0;*/
+	font-size: 25px;
+	/*margin: 0 3px;*/
+	line-height: 1;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+	content: '★';
+}
+.rating-result > span.active {
+	color: gold;
+	text-shadow: 0 0 10px gold;
+}
+
+.own-review {
+    border: 1px solid #b6ffc7;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding-left: 1%;
+    width: 35%;
+    background-color: #deffeb;
+}
+
+.own-review textarea {
+    width: 95%;
+    height: 40px;
+    border: 2px solid #b6ffc7;
+}
+
+.own-review p {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.own-review input {
+    margin-top: 10px;
+    width: 90px;
+    margin-left: 43%;
+    margin-bottom: 20px;
+}
+
+.delivery {
+    width: 100%;
+    font-size: smaller;
+    display: inline-block;
+    border: 2px solid #b6ffc7;
+    /*padding-left: 3px;*/
+    box-shadow: 0 0 5px #b6ffc7;
+    padding: 0 5px 5px 5px;
+}
+
+.heading{
+    color: #1b1b32;
+    background-color: #deffeb;
+    text-align: center;
+}
+
+.rating-area {
+	overflow: hidden;
+	width: 250px;
+	margin: 0 25%;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+.comments {
+    text-align: center;
+    width: 34%;
+    margin-top: 50px;
+    margin-left: 16%;
+    border: 3px solid #b6ffc7;
+    box-shadow: 0 0 50px #b6ffc7;
+}
+
+.comments p{
+    font-size: medium;
+    margin-left: 10px;
+}
+
+.comment {
+    text-align: left;
+    margin-bottom: 10px;
+    border: 2px solid #b6ffc7;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.comment h4{
+    margin-left: 10px;
+}
+

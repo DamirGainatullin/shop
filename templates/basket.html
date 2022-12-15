@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="basket.css") }}">
+</head>
+<body>
+    <table class="big-table">
+        <tr>
+                <td class="left-border"></td>
+                <td class="bookmarks">
+                {% for i in range(wishlist| length) %}
+                    <div class="info">
+                        <img width="150px" src="{{ wishlist[i][5] }}">
+                        <p>{{ wishlist[i][1] }}</p>
+                        <p>{{ wishlist[i][4]  }}</p>
+                    </div>
+                {% endfor %}
+                <input onclick="window.location.href={{ url_for('add_all_bookmarks') }}" type="button" value="Order">
+                </td>
+                <td class="center-border"></td>
+                <td class="basket">
+                {% for i in range(products| length) %}
+                    <div class="info">
+                        <img width="150px" src="{{ products[i][5] }}">
+                        <p>{{ products[i][1] }}</p>
+                        <p>{{ products[i][4]  }}</p>
+                    </div>
+                {% endfor %}
+                <input type="button" value="Order">
+                    <div class="delivery">
+                        <p>Kazan</p>
+                        <p>by courier - day after tomorrow</p>
+                        <p>pickup point - tomorrow</p>
+                    </div>
+                </td>
+                <td class="right-border"></td>
+            </tr>
+    </table>
+</body>
+</html>

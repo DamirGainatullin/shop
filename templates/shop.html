@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Market</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="catalog.css") }}">
+</head>
+<body>
+    <header class="header">
+        <div class="overlay">
+            <h1 class="title">BUY SOMETHING PLEASE</h1>
+        </div>
+    </header>
+
+    <div class="buttons">
+        <input class="test" type="button" value="filters">
+        <input class="test" type="button" value="sorted by">
+        <input onclick="window.location.href='{{ url_for('basket', user_name=username)}}'" class="test" type="button" value="basket">
+    </div>
+
+    <section class="content">
+    {% set n = 2 %}
+        {% for i in range(data| length) %}
+            {% if i == n  %}
+                {% set n =  n + 3 %}
+                <div class="product no-right-margin" onclick="window.location.href='{{ url_for('product', product_id=data[i][0]) }}';">
+                    <img width="200" height="300" class="product-img" src={{ data[i][5] }}>
+                    <h3 class="product-title">{{ data[i][1] }}</h3>
+                    <p class="product-article">{{ data[i][2] }}</p>
+                    {% if data[i][3]|length < 150 %}
+                        <p class="product-description">{{ data[i][3] + '.' * (150 - data[i][3]|length)}}</p>
+                    {% else %}
+                        <p class="product-description">{{ data[i][3][:150] }}...</p>
+                    {% endif %}
+                    <input class="bookmarks_button" type="button" value="add to bookmarks">
+                    <input onclick="window.location.href='{{ url_for('product', product_id=data[i][0]) }}';" class="buy_button" type="button" value="buy">
+                </div>
+            {% else %}
+                <div class="product" onclick="window.location.href='{{ url_for('product', product_id=data[i][0]) }}';">
+                    <img width="200" height="300" class="product-img" src={{ data[i][5] }} >
+                    <h3 class="product-title">{{ data[i][1] }}</h3>
+                    <p class="product-article">{{ data[i][2] }}</p>
+                    {% if data[i][3]|length < 150 %}
+                        <p class="product-description">{{ data[i][3] + ' ' * (150 - data[i][3]|length) }}</p>
+                    {% else %}
+                        <p class="product-description">{{ data[i][3][:150] }}...</p>
+                    {% endif %}
+                    <input onclick="window.location.href='{{ url_for('add_bookmarks', product_id=data[i][0])}}'" class="bookmarks_button" type="button" value="add to bookmarks">
+                    <input onclick="window.location.href='{{ url_for('product', product_id=data[i][0]) }}';" class="buy_button" type="button" value="buy">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
+</body>
+</html>
+

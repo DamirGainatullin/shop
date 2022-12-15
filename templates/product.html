@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for("static", filename="product.css") }}">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="window.location.href='{{ url_for('shop') }}';">Go Back</button>
+    <br>
+    <table>
+        <tr>
+            <td class="left-border"></td>
+            <td class="image">
+                <img width="500" src={{ data[0][5] }}>
+            </td>
+            <td class="description">
+                <h1>{{ data[0][1] }}</h1>
+                <div class="rating-result">
+                    {% if rate == 5 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                    {% elif rate == 4 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                    {% elif rate == 3 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    {% elif rate == 2 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    {% elif rate == 1 %}
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    {% endif %}
+                </div>
+                <br>
+                <div class="about">
+                    <p class="heading">Description</p>
+                    <p>{{ data[0][3] }}</p>
+                </div>
+            </td>
+            <td class="right-border"></td>
+        </tr>
+        <tr>
+            <td class="left-border"></td>
+            <td style="vertical-align: top;">
+                <input onclick="window.location.href='{{ url_for('add_basket', product_id=data[0][0])}}'" style="background-color: #deffeb; border: 1px solid #1b1b32" type="button" class="buttons" value="in Basket">
+                <input type="button" class="buttons" value="Questions">
+                <input type="button" class="buttons" value="Share">
+            </td>
+            <td>
+            <br>
+                <div class="delivery">
+                    <p class="heading">Info about delivery</p>
+{#                    <img width="60" src="https://media.istockphoto.com/id/1261917093/ru/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0-%D0%B7%D0%BD%D0%B0%D1%87%D0%BA%D0%B0-%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D0%BA%D0%B0%D1%80%D1%82%D1%8B.jpg?s=612x612&w=0&k=20&c=iC01hCa76SJKSSMaRRSbySBwGVpCKgoJ_JBs5yLIzKs=">#}
+                    <p>Kazan</p>
+                    <p>by courier - day after tomorrow</p>
+                    <p>pickup point - tomorrow</p>
+                </div>
+            <td>
+            <td class="right-border"></td>
+        </tr>
+    </table>
+    {% if let_rate %}
+    <div class="own-review">
+        <p>Please write review</p>
+        <form method="post" action="">
+        <textarea name="review"></textarea>
+        <div class="rating-area">
+            <input type="radio" id="star-5" name="rating" value="5">
+	        <label for="star-5" title="Оценка «5»"></label>
+	        <input type="radio" id="star-4" name="rating" value="4">
+	        <label for="star-4" title="Оценка «4»"></label>
+	        <input type="radio" id="star-3" name="rating" value="3">
+	        <label for="star-3" title="Оценка «3»"></label>
+	        <input type="radio" id="star-2" name="rating" value="2">
+	        <label for="star-2" title="Оценка «2»"></label>
+	        <input type="radio" id="star-1" name="rating" value="1">
+	        <label for="star-1" title="Оценка «1»"></label>
+        </div>
+        <input type="submit" value="Rate">
+    </div>
+    {% endif %}
+<div class="comments">
+    <h3>Comments</h3>
+    {% for i in range(comments|length) %}
+        <div class="comment">
+            <h4>{{ comments[i][2] }}</h4>
+            <div class="rating-result">
+                    {% if comments[i][1] == 5 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                    {% elif comments[i][1] == 4 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                    {% elif comments[i][1] == 3 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    {% elif comments[i][1] == 2 %}
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    {% elif comments[i][1] == 1 %}
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    {% endif %}
+            </div>
+            <p>{{ comments[i][0] }}</p>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
